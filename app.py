@@ -86,8 +86,13 @@ def encontrar_resposta_semelhante(nova_entrada):
 # Título da aplicação Streamlit
 st.title("Assistente de Sentimentos - Mayá")
 
-# Entrada do usuário
-texto_usuario = st.text_input("Como você está se sentindo hoje?")
+# Botão de "Sair"
+if st.button("Sair"):
+    st.write("Obrigado por interagir! Até mais!")
+    st.stop()  # Interrompe a execução da interação
+
+# Loop de interação com o usuário
+texto_usuario = st.text_input("Como você está se sentindo hoje?", key="user_input")
 
 if texto_usuario:
     # Verifica se já houve uma conversa semelhante antes
@@ -99,8 +104,7 @@ if texto_usuario:
         st.write(f"Mayá ({sentimento}, confiança: {score:.2f}): {resposta}")
 
     # Mostrar o histórico de interações
-    
-    #if len(historico_interacao) > 0:
-        #st.subheader("Histórico de Interações:")
-        #for entry in historico_interacao:
-            #st.write(f"Texto: {entry['texto']} - Sentimento: {entry['sentimento']} (Confiança: {entry['score']:.2f})")
+    if len(historico_interacao) > 10:
+        st.subheader("Histórico de Interações:")
+        for entry in historico_interacao:
+            st.write(f"Texto: {entry['texto']} - Sentimento: {entry['sentimento']} (Confiança: {entry['score']:.2f})")
