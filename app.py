@@ -99,7 +99,8 @@ if texto_usuario:
         st.write(f"Mayá ({sentimento}, confiança: {score:.2f}): {resposta}")
 
     # Mostrar o histórico de interações
-    if len(historico_interacao) > 0:
-        st.subheader("Histórico de Interações:")
-        for entry in historico_interacao:
-            st.write(f"Texto: {entry['texto']} - Sentimento: {entry['sentimento']} (Confiança: {entry['score']:.2f})")
+    
+    #if len(historico_interacao) > 0:
+        #st.subheader("Histórico de Interações:")
+        #for entry in historico_interacao:
+            #st.write(f"Texto: {entry['texto']} - Sentimento: {entry['sentimento']} (Confiança: {entry['score']:.2f})")
